@@ -1,0 +1,181 @@
+battery_type:
+  LIB_LFP: LIB_LFP
+  LIB_NMC811: LIB_NMC811
+  ASSB_LFP: ASSB_LFP
+  ASSB_NMC811: ASSB_NMC811
+
+densities:                             # units: g/cm^3
+  lithium: 0.534
+  aluminum: 2.7
+  copper: 8.96
+  cam:
+    ASSB_LFP: 3.45
+    ASSB_NMC811: 4.65
+    LIB_LFP: 3.45
+    LIB_NMC811: 4.65
+  black_carbon: 1.825
+  PVDF: 1.77
+  CMC-SBR: 1.1
+  electrolyte:
+    ASSB_LFP: 1.2
+    ASSB_NMC811: 5.1
+    LIB_LFP: 1.2          ## same as SIB and BatPaC
+    LIB_NMC811: 1.2          ## same as SIB and BatPaC 
+  PET: 1.38
+  PP: 0.9  ## the density of PP varies, so the real mass of PP is calculated by "mass_cell_container - mass_PET"
+  cell_container_density: 2.2
+  EC: 1.321
+  DMC: 0.962
+  LiPF6: 1.5
+  processed_cathode:        
+    LIB_LFP: 2.4   
+    LIB_NMC811: 2.84            ## SIB study
+  processed_anode:
+    LIB_NMC811: 1.5
+    LIB_LFP: 1.5 
+   
+
+thicknesses:                            # units: mm
+
+  cathode:
+    LIB_LFP: 0.094                ## single side coating
+    LIB_NMC811: 0.0873            ## single side coating                
+  anode:
+    ASSB_LFP: 0.02      ##  lithium_foil
+    ASSB_NMC811: 0.02   ##  lithium_foil
+    LIB_LFP: 0.071               ## single side coating, this is just a default value from literature. it's not used for calculation, mass_loading was used for calculating the thickness
+    LIB_NMC811: 0.1153           ## single side coating, this is just a default value. it's not used for calculation, mass_loading was used for calculating the thickness
+  aluminum_foil: 0.01
+  copper_foil: 0.008                 ## the same as SIB model
+  Al_layer: 0.0666
+  PET_layer: 0.02
+  PP_layer: 0.0133
+  cell_container_thickness: 0.1
+  separator:
+    LIB_LFP: 0.015
+    LIB_NMC811: 0.015
+  electrolyte:
+    ASSB_LFP: 0.025                ### PEO-
+    ASSB_NMC811: 0.02             ### LLZO
+
+material_properties:                   
+  ratio_cathode_active_material: 0.96    # unitless
+  ratio_cathode_bc: 0.02                 # unitless
+  ratio_cathode_pvdf: 0.02               # unitless
+  mass_loading:
+    cathode:                          # units: mg/cm^2
+      ASSB_LFP: 13.3
+      ASSB_NMC811: 23.4
+      LIB_LFP: 22.6                   ## single side mass loading  most updated: 22.6
+      LIB_NMC811: 27.9                ## single side mass loading  most updated: 27.9
+    anode: 
+      LIB_LFP: 10.7                   ## single side mass loading   most updated: 10.7
+      LIB_NMC811: 18.1               ## single side mass loading    most updated: 18.1 
+  capacity_material:                     # units: mAh/g
+    ASSB_LFP: 150
+    ASSB_NMC811: 213.6
+    LIB_LFP: 150
+    LIB_NMC811: 213.6
+  voltage:                               # units: V
+    ASSB_LFP: 3.5
+    ASSB_NMC811: 4.15
+    LIB_LFP: 3.2
+    LIB_NMC811: 3.57        
+  porosity_cathode: 0.3                  # unitless, percentage
+  porosity_separator: 0.5
+
+dimensions:                              # units: mm
+  cathode:
+    width: 53
+    length: 88
+  anode:
+    width: 55
+    length: 90
+  electrolyte:
+    width: 57
+    length: 92
+  current_collector:
+    width: 57
+    length: 92
+  total_cell:
+    width: 67         
+    length: 112
+  cell_height_benchmark: 20
+
+
+battery_manufacturing_energy:
+
+  electrode_manufacturing_anode:
+
+    electric_energy_consumption:
+      LIB_NMC811: 0.595269490589688 # kWhprod/kWhcell
+      LIB_LFP: 0.97268529505 # kWhprod/kWhcell
+      ASSB_NMC811: 0.25353037767 # kWhprod/kWhcell
+      ASSB_LFP: 0.253530377668309 # kWhprod/kWhcell
+    gas_consumption:
+      LIB_NMC811: 3.31724469656 # kWhprod/kWhcell
+      LIB_LFP: 5.53709856035 # kWhprod/kWhcell
+      ASSB_NMC811: 0 # kWhprod/kWhcell
+      ASSB_LFP: 0 # kWhprod/kWhcell
+
+  electrolyte_manufacturing:
+
+    electric_energy_consumption:
+      LIB_NMC811: 0 # kWhprod/kWhcell
+      LIB_LFP: 0 # kWhprod/kWhcell
+      ASSB_NMC811: 0.01235862069 # kWhprod/kWhcell
+      ASSB_LFP: 0.12182769568 # kWhprod/kWhcell
+    gas_consumption:
+      LIB_NMC811: 0 # kWhprod/kWhcell
+      LIB_LFP: 0 # kWhprod/kWhcell
+      ASSB_NMC811: 0 # kWhprod/kWhcell
+      ASSB_LFP: 1.20415982485 # kWhprod/kWhcell
+
+  electrode_manufacturing_cathode:
+  
+    electric_energy_consumption:
+      LIB_NMC811: 0.58969651950 # kWhprod/kWhcell
+      LIB_LFP: 0.98431320202 # kWhprod/kWhcell
+      ASSB_NMC811: 0.24422738291 # kWhprod/kWhcell
+      ASSB_LFP: 0.22968363437 # kWhprod/kWhcell
+    gas_consumption:
+      LIB_NMC811: 3.31724469656 # kWhprod/kWhcell
+      LIB_LFP: 5.53709856035 # kWhprod/kWhcell
+      ASSB_NMC811: 2.681992337 # kWhprod/kWhcell
+      ASSB_LFP: 1.20415982485 # kWhprod/kWhcell
+
+  assembly:
+    electric_energy_consumption:
+      LIB_NMC811: 2.10551805922 # kWhprod/kWhcell
+      LIB_LFP: 3.51450136512 # kWhprod/kWhcell
+      ASSB_NMC811: 0.92032116830 # kWhprod/kWhcell
+      ASSB_LFP: 0.86198978977 # kWhprod/kWhcell
+    gas_consumption:
+      LIB_NMC811: 0 # kWhprod/kWhcell
+      LIB_LFP: 0 # kWhprod/kWhcell
+      ASSB_NMC811: 1.47783251232 # kWhprod/kWhcell
+      ASSB_LFP: 0 # kWhprod/kWhcell
+
+  formation_and_aging:
+    electric_energy_consumption:
+      LIB_NMC811: 5.70477419317 # kWhprod/kWhcell
+      LIB_LFP: 9.52232948174 # kWhprod/kWhcell
+      ASSB_NMC811: 0.94197231478 # kWhprod/kWhcell
+      ASSB_LFP: 0.94197231478 # kWhprod/kWhcell
+    gas_consumption:
+      LIB_NMC811: 0.20744633430 # kWhprod/kWhcell
+      LIB_LFP: 0.34626652661 # kWhprod/kWhcell
+      ASSB_NMC811: 0.08762533161 # kWhprod/kWhcell
+      ASSB_LFP: 0.08762533161 # kWhprod/kWhcell
+
+  miscellaneous:
+    electric_energy_consumption:
+      LIB_NMC811: 1.88257548375 # kWhprod/kWhcell
+      LIB_LFP: 3.14236872897 # kWhprod/kWhcell
+      ASSB_NMC811: 1.16298530742 # kWhprod/kWhcell
+      ASSB_LFP: 1.23082922042 # kWhprod/kWhcell
+    gas_consumption:
+      LIB_NMC811: 4.73496258033 # kWhprod/kWhcell
+      LIB_LFP: 7.90353346985 # kWhprod/kWhcell
+      ASSB_NMC811: 4.06009783368 # kWhprod/kWhcell
+      ASSB_LFP: 4.44010699053 # kWhprod/kWhcell
